@@ -1,6 +1,8 @@
 package br.com.dio.app.repositories.data.di
 
 import android.util.Log
+import br.com.dio.app.repositories.data.repositories.RepoRepositoryImp
+import br.com.dio.app.repositories.data.repositories.Repository
 import br.com.dio.app.repositories.data.services.GithubService
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -16,7 +18,7 @@ object DataModule {
     private const val OK_HTTP = "OkHttp"
 
     fun load (){
-        loadKoinModules(networkModules())
+        loadKoinModules(networkModules() + repositoriesModule())
     }
 
     private fun networkModules(): Module{
@@ -36,6 +38,13 @@ object DataModule {
 
             single {
                 createService<GithubService>(get(),get())
+            }
+        }
+    }
+    private fun repositoriesModule(): Module{
+        return module {
+            single {
+                single<Repository> {RepoRepositoryImp(get())}
             }
         }
     }
