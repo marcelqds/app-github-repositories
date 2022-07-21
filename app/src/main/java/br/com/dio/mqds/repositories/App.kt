@@ -1,4 +1,4 @@
-package br.com.dio.app.repositories
+package br.com.dio.app.mqds.repositories
 
 import android.app.Application
 import org.koin.android.ext.koin.androidContext
