@@ -12,7 +12,6 @@ import org.koin.core.module.Module
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 object DataModule {
     private const val OK_HTTP = "OkHttp"
@@ -41,11 +40,10 @@ object DataModule {
             }
         }
     }
+
     private fun repositoriesModule(): Module{
         return module {
-            single {
-                single<Repository> {RepoRepositoryImp(get())}
-            }
+            single<Repository> {RepoRepositoryImp(get())}
         }
     }
 

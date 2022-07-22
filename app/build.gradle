@@ -16,8 +16,8 @@ android {
         versionName "1.0"
     }
 
-    buildFeatures {
-        viewBinding = true
+    viewBinding{
+        enabled= true
     }
 
     buildTypes {
@@ -52,8 +52,8 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
 
     //koin @see https://insert-koin.io/docs/quickstart/android/
-    implementation "io.insert-koin:koin-android:3.0.1"
-    implementation "io.insert-koin:koin-android-ext:3.0.1"
+    implementation "io.insert-koin:koin-android:3.2.0"
+    implementation "io.insert-koin:koin-android-ext:3.0.2"
 
     //coroutines @see https://developer.android.com/kotlin/coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
